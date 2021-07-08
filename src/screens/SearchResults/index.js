@@ -4,6 +4,7 @@ import React from 'react';
 import {View, Dimensions} from 'react-native';
 import HomeMap from '../../components/HomeMap/index';
 import UberTypes from '../../components/UberTypes/index';
+import RouteMap from '../../components/RouteMap/index';
 
 const SearchResults = () => {
     return (
@@ -11,7 +12,7 @@ const SearchResults = () => {
         <View style={{display: 'flex', justifyContent: 'space-between'}}>
 
             <View style={{height: Dimensions.get('window').height - 400}}>
-                <HomeMap />
+                <RouteMap />
             </View>
 
             <View style={{height: 600}}>
