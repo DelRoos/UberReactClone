@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     iconContainer: {
         backgroundColor: '#a2a2a2',
-        padding: 5,
+        padding: 10,
         borderRadius: 50,
         marginRight: 15,
     },

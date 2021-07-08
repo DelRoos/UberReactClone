@@ -11,8 +11,8 @@ const DestinationSearch = props => {
   // const [fromText, setFromText] = useState('');
   // const [destinationText, setDestinationText] = useState('');
 
-  const [originPlace, setOriginPlace] = useState(null)
-  const [destinationPlace, setDestinationPlace] = useState(null)
+  const [originPlace, setOriginPlace] = useState(null);
+  const [destinationPlace, setDestinationPlace] = useState(null);
 
   useEffect(() => {
     console.warn('Effect is called');
@@ -20,6 +20,17 @@ const DestinationSearch = props => {
       console.warn('redirect to result');
     }
   }, [originPlace, destinationPlace]);
+
+
+  const homePlace = {
+    description: 'Home',
+    geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
+  };
+  const workPlace = {
+    description: 'Work',
+    geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
+  };
+
 
   return (
     <SafeAreaView>
@@ -32,6 +43,7 @@ const DestinationSearch = props => {
             setOriginPlace({data, details});
             console.log(data, details);
           }}
+          suppressDefaultStyles
           styles={{
             textInput: styles.textInput,
             container: styles.autocompleteRows,
@@ -43,7 +55,11 @@ const DestinationSearch = props => {
             key: 'AIzaSyAyTzROc_wrO-16oCrvH07HLDXPMT9jigI',
             language: 'en',
           }}
-          renderRow={(data => <PlaceRow data={data} />)}
+          currentLocation={true}
+          currentLocationLabel='Current location'
+          renderRow={(data) => <PlaceRow data={data} />}
+          renderDescription={(data) => data.description || data.vicinity}
+          predefinedPlaces={[homePlace, workPlace]}
         />
 
 
