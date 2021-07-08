@@ -21,11 +21,13 @@ const App: () => React$Node = () => {
     <View>
       <StatusBar />
 
-      {/* <HomeScreen /> */}
+      <HomeScreen />
 
       {/* <HomeSearch /> */}
 
-      <SearchResults />
+      {/* <DestinationSearch /> */}
+
+      {/* <SearchResults /> */}
     </View>
   );
 };
