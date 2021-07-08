@@ -25,9 +25,9 @@ const App: () => React$Node = () => {
 
       {/* <HomeSearch /> */}
 
-      {/* <DestinationSearch /> */}
+      <DestinationSearch />
 
-      <SearchResults />
+      {/* <SearchResults /> */}
     </View>
   );
 };

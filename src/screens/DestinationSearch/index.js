@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 import {View, TextInput, SafeAreaView} from 'react-native';
 import styles from './styles';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import PlaceRow from './PlaceRow';
 
 
 const DestinationSearch = props => {
@@ -26,29 +27,40 @@ const DestinationSearch = props => {
 
         <GooglePlacesAutocomplete
           placeholder='Where from ?'
+          enablePoweredByContainer={false}
           onPress={(data, details = null) => {
             setOriginPlace({data, details});
             console.log(data, details);
           }}
           styles={{
             textInput: styles.textInput,
+            container: styles.autocompleteRows,
+            listView: styles.listView,
+            separator: styles.separator,
           }}
           fetchDetails
           query={{
             key: 'AIzaSyAyTzROc_wrO-16oCrvH07HLDXPMT9jigI',
             language: 'en',
           }}
+          renderRow={(data => <PlaceRow data={data} />)}
         />
 
 
         <GooglePlacesAutocomplete
           placeholder='Where To ?'
+          enablePoweredByContainer={false}
           onPress={(data, details = null) => {
             setDestinationPlace({data, details});
             console.log(data, details);
           }}
           styles={{
             textInput: styles.textInput,
+            container: {
+              ...styles.autocompleteRows,
+              top: 55,
+            },
+            separator: styles.separator,
           }}
           fetchDetails
           query={{
@@ -56,7 +68,12 @@ const DestinationSearch = props => {
             language: 'en',
           }}
 
+          renderRow={(data => <PlaceRow data={data} />)}
         />
+        
+          <View style={styles.circle} />
+          <View style={styles.line} />
+          <View style={styles.square}  />
 
       </View>
     </SafeAreaView>
