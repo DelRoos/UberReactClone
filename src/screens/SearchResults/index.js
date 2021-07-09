@@ -12,6 +12,8 @@ const SearchResults = (props) => {
 
     const route = useRoute();
 
+    const {originPlace, destinationPlace} = route.params;
+
     console.log(route.params);
 
     return (
@@ -19,7 +21,7 @@ const SearchResults = (props) => {
         <View style={{display: 'flex', justifyContent: 'space-between'}}>
 
             <View style={{height: Dimensions.get('window').height - 400}}>
-                <RouteMap />
+                <RouteMap originLoc={originPlace} destinationLoc={destinationPlace}/>
             </View>
 
             <View style={{height: 600}}>
