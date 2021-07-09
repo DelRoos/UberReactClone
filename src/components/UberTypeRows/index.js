@@ -11,13 +11,13 @@ const UberTypeRow = (props) => {
     const {type} = props;
 
     const getImage = () => {
-        if (type.type == 'UberX') {
+        if (type.type === 'UberX') {
             return require('../../assets/image/UberX.jpeg');
         }
-        if (type.type == 'UberXL') {
+        if (type.type === 'UberXL') {
             return require('../../assets/image/UberXL.jpeg');
         }
-        if (type.type == 'Comfort') {
+        if (type.type === 'Comfort') {
             return require('../../assets/image/Comfort.jpeg');
         }
     };

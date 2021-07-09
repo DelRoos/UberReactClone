@@ -9,13 +9,13 @@ import cars from '../../assets/data/cars';
 const HomeMap = props => {
 
   const getImage = (type) => {
-    if (type == 'UberX') {
+    if (type === 'UberX') {
         return require('../../assets/image/top-UberX.png');
     }
-    if (type == 'UberXL') {
+    if (type === 'UberXL') {
         return require('../../assets/image/top-UberXL.png');
     }
-    if (type == 'Comfort') {
+    if (type === 'Comfort') {
         return require('../../assets/image/top-Comfort.png');
     }
   };
@@ -32,7 +32,7 @@ const HomeMap = props => {
             longitudeDelta: 0.0121,
           }}
       >
-        {cars.map((car: {...}) => (
+        {cars.map((car) => (
             <Marker
                 key={car.id}
                 coordinate={{ latitude : car.latitude , longitude : car.longitude }}

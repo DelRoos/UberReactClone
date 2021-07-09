@@ -5,20 +5,28 @@ import {View, TextInput, SafeAreaView} from 'react-native';
 import styles from './styles';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import PlaceRow from './PlaceRow';
-
+import { useNavigation } from '@react-navigation/native';
 
 const DestinationSearch = props => {
-  // const [fromText, setFromText] = useState('');
-  // const [destinationText, setDestinationText] = useState('');
 
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
 
-  useEffect(() => {
-    console.warn('Effect is called');
+  const navigation = useNavigation();
+
+  const checkNavigation = () => {
     if (originPlace && destinationPlace) {
-      console.warn('redirect to result');
+      console.warn('hello');
+      navigation.navigate('SearchResults', {
+        originPlace,
+        destinationPlace,
+      });
     }
+    console.warn('Effect is called');
+  };
+
+  useEffect(() => {
+    checkNavigation();
   }, [originPlace, destinationPlace]);
 
 
@@ -41,7 +49,6 @@ const DestinationSearch = props => {
           enablePoweredByContainer={false}
           onPress={(data, details = null) => {
             setOriginPlace({data, details});
-            console.log(data, details);
           }}
           suppressDefaultStyles
           styles={{
@@ -68,7 +75,6 @@ const DestinationSearch = props => {
           enablePoweredByContainer={false}
           onPress={(data, details = null) => {
             setDestinationPlace({data, details});
-            console.log(data, details);
           }}
           styles={{
             textInput: styles.textInput,
@@ -86,7 +92,7 @@ const DestinationSearch = props => {
 
           renderRow={(data => <PlaceRow data={data} />)}
         />
-        
+
           <View style={styles.circle} />
           <View style={styles.line} />
           <View style={styles.square}  />

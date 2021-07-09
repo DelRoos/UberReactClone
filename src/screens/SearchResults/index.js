@@ -6,7 +6,14 @@ import HomeMap from '../../components/HomeMap/index';
 import UberTypes from '../../components/UberTypes/index';
 import RouteMap from '../../components/RouteMap/index';
 
-const SearchResults = () => {
+import { useRoute } from '@react-navigation/native';
+
+const SearchResults = (props) => {
+
+    const route = useRoute();
+
+    console.log(route.params);
+
     return (
         // eslint-disable-next-line react-native/no-inline-styles
         <View style={{display: 'flex', justifyContent: 'space-between'}}>

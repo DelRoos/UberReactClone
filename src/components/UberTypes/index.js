@@ -14,8 +14,8 @@ const UberTypes = () => {
 
     return (
         <View>
-            {typeData.map((type: {...}) => (
-                <UberTypeRow type={type}/>
+            {typeData.map((type) => (
+                <UberTypeRow type={type} key={type.id}/>
             ))}
 
             <Pressable onPress={confirm} style={{

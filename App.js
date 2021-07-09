@@ -7,16 +7,14 @@
  * @format
  * @flow strict-local
  */
+import 'react-native-gesture-handler';
 
 import React from 'react';
 import {StatusBar, View, PermissionsAndroid, Platform} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import HomeScreen from './src/screens/HomeScreen';
-import HomeSearch from './src/components/HomeSearch/index';
-import DestinationSearch from './src/screens/DestinationSearch/index';
-import SearchResults from './src/screens/SearchResults/index';
 import { useEffect } from 'react';
+import RootNavigator from './src/Navigations/Root';
 
 navigator.geolocation = require('@react-native-community/geolocation');
 
@@ -56,17 +54,10 @@ const App: () => React$Node = () => {
   }, []);
 
   return (
-    <View>
-      <StatusBar />
-
-      <HomeScreen />
-
-      {/* <HomeSearch /> */}
-
-      {/* <DestinationSearch /> */}
-
-      {/* <SearchResults /> */}
-    </View>
+    <>
+      <StatusBar barStyle="dark-content"/>
+      <RootNavigator />
+    </>
   );
 };
 
